@@ -1,24 +1,68 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { createContext, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  
+} from "react-router-dom";
+import Home from './components/Pages/Home';
+import Login from './components/Login/Login';
+import PrivateRoute from './components/Login/PrivateRoute'
+import DetailNews from './components/Home/DetailNews/DetailNews';
+import Sports from './components/Category/Sports/Sports';
+import AllBusinessNews from './components/Category/AllBusinessNews/AllBusinessNews';
+import DhasboadSidebar from './components/Dhasboard/DhasboadSidebar/DhasboadSidebar';
+import AddAdmin from './components/Dhasboard/AddAdmin/Addmin';
+import AddNews from './components/Dhasboard/AddNews/AddNews';
+
+export const UserContext = createContext();
+
 
 function App() {
+  const [newses,setNewses] = useState([])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    
+    <UserContext.Provider value={[newses,setNewses]}>
+  <Router>
+  
+    <Switch>
+        <Route exact path="/">
+          <Home />
+       </Route>
+       <PrivateRoute path="/newsDetail/:_id">
+         <DetailNews/>
+       </PrivateRoute >
+       <Route path="/login">
+         <Login/>
+
+       </Route>
+       <Route path="/sportsNews">
+         <Sports/>
+       </Route>
+       <Route path="/businessNews">
+         <AllBusinessNews/>
+       </Route>
+       <Route path="/dashboard">
+       <DhasboadSidebar/>
+
+       </Route>
+       <Route path="/addAdmin">
+       <AddAdmin/>
+       </Route>
+       <Route path="/addNews">
+       <AddNews/>
+       </Route>
+
+    </Switch>
+  </Router>
+  </UserContext.Provider>
+
+  </>
+  
+  
   );
 }
 
