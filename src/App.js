@@ -45,10 +45,10 @@ function App() {
        <Route path="/businessNews">
          <AllBusinessNews/>
        </Route>
-       <Route path="/dashboard">
+       <PrivateRoute path="/dashboard">
        <DhasboadSidebar/>
 
-       </Route>
+       </PrivateRoute>
        <Route path="/addAdmin">
        <AddAdmin/>
        </Route>

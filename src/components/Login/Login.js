@@ -27,6 +27,7 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 const loggedInUser = { name: user.displayName, email: user.email, img: user.photoURL };
+                console.log(loggedInUser)
                 localStorage.setItem('user', JSON.stringify(loggedInUser));
                 history.replace(from);
             }).catch((error) => {
