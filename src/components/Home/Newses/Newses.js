@@ -7,7 +7,7 @@ const Newses = () => {
     const [newses,setNewses] = useContext(UserContext);
    
     useEffect(()=>{
-        fetch('https://shielded-hamlet-59568.herokuapp.com/newses')
+        fetch('https://protected-coast-24801.herokuapp.com/newses')
         .then(res=>res.json())
         .then(data=>setNewses(data))
     },[setNewses])

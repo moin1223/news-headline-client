@@ -14,7 +14,7 @@ const AddAdmin = () => {
 
     }
 
-    const url = `https://shielded-hamlet-59568.herokuapp.com/addAdmin`
+    const url = `https://protected-coast-24801.herokuapp.com/addAdmin`
 
         fetch(url,{
             method:"POST",

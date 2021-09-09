@@ -18,7 +18,7 @@ const AddNews = () => {
 
     }
 
-    const url = `https://shielded-hamlet-59568.herokuapp.com/addNews`
+    const url = `https://protected-coast-24801.herokuapp.com/addNews`
 
         fetch(url,{
             method:"POST",
