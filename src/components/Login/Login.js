@@ -1,8 +1,8 @@
 import "./Login.css"
 import React, { useState } from 'react';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
+import firebase from 'firebase/app';
+// import 'firebase/compat/auth';
+// import 'firebase/compat/firestore';
 import "firebase/auth";
 import firebaseConfig from './firebaseConfig';
 import { useHistory, useLocation } from 'react-router';
