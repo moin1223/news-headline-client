@@ -10,10 +10,13 @@ const DetailNews = () => {
     console.log(newses)
     const {_id} = useParams ();
     const news=newses.find(td=>td._id === _id);
+  
 
     return (
-        <>
+        <> 
+   
         <div className="card mb-3">
+        <h1 className="text-center text-danger my-4 py-4"><b>{news?.category}</b></h1>
   <img src={news?.imageURL} className="card-img-top" alt="..."/>
   <div className="card-body">
   <small classNameName="card-title">author:{news?.author}</small>

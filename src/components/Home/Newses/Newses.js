@@ -12,7 +12,8 @@ const Newses = () => {
         .then(data=>setNewses(data))
     },[setNewses])
     return (
-        <div>
+        <div>  
+            <h1 className="text-center text-dabger my-3 py-3">Top News</h1>
 
          
                {

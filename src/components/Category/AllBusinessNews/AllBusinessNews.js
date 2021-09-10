@@ -22,7 +22,7 @@ const AllBusinessNews = () => {
     return (
         <div>
 
-
+<h1 className="text-center text-danger my-4 py-4"><b>Business</b></h1>
             {
                 BusinessNewses.map(Business => <BusinessNews Business={Business} key={Business._id}></BusinessNews>)
             }

@@ -32,7 +32,7 @@ const Sports = () => {
     return (
         <div>
 
-
+<h1 className="text-center text-danger my-4 py-4"><b>Sports</b></h1>
             {
                 SportsNews.map(sport => <Sport sport={sport} key={sport._id}></Sport>)
             }

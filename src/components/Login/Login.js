@@ -1,4 +1,5 @@
 import "./Login.css"
+import { useForm } from "react-hook-form";
 import React, { useState } from 'react';
 import firebase from 'firebase/app';
 // import 'firebase/compat/auth';
@@ -12,6 +13,7 @@ if (!firebase.apps.length) {
 }
 
 const Login = () => {
+    const { register, handleSubmit } = useForm();
 
     const googleProvider = new firebase.auth.GoogleAuthProvider();
 
@@ -35,22 +37,44 @@ const Login = () => {
                 setError(errorMessage);
             });
     }
+
+    const onSubmit = data => {
+
+        const addminData = {
+            email: data.email,
+            password: data.password
+
+
+        }
+        localStorage.setItem('user', JSON.stringify(addminData));
+        history.replace(from);
+    }
+
+
     return (
-        <div className="login">
-            <div className="login-box">
-                <h3>Login</h3><br />
 
-                <button className="login-btn" onClick={handleGoogleSignIn}>
-                    <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="" />
-                    <b className="float-sm-end">Continue with Google</b>
-                </button>
 
-                <p>Don't have an account? Create One</p>
+        <>
 
-                <p style={{ color: 'red' }}>{error}</p>
-            </div>
 
-        </div>
+<div className="form-login text-center ">
+<form onSubmit={handleSubmit(onSubmit)} className=""> 
+                   <h3>Sign in</h3><br />          
+
+<input type="text" class="form-control"  {...register("email")} placeholder="email" defaultValue="test@test.com" /> <br />
+<input   {...register("password")} className="form-control " placeholder="Password" defaultValue="#2021dev" /> <br />
+
+<button className ="login-btn">Sign in</button>
+<p>or</p>
+</form>
+<button onClick={handleGoogleSignIn} className ="login-btn">Continue with Google</button>
+<p>Don't have an account? Create One</p>
+<p style={{ color: 'red' }}>{error}</p>
+             
+</div>
+
+                   
+        </>
     );
 };
 
